@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from expenses.views import RESTCategoryList, RESTCategoryDetails
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("rest-api/categories/", RESTCategoryList.as_view(), name="rest_category_list"),
+    path("rest-api/categories/<str:codename>/", RESTCategoryDetails.as_view(), name="rest_category_detail")
 ]
