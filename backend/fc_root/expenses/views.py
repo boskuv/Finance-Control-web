@@ -1,13 +1,18 @@
 from rest_framework import generics
 from django_filters import rest_framework as filters
+from django.db.models import Sum
 from .serializers import CategorySerializer, ExpenseSerializer
 from .models import Category, Expense
 from .filters import ExpenseFilter
 
 
 class CategoryListView(generics.ListCreateAPIView):
-    queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+    def get_queryset(self):
+        return Category.objects.annotate(
+            money_spent=Sum('expenses__amount')
+            )
 
 
 class CategoryDetailsView(generics.RetrieveUpdateDestroyAPIView):
@@ -24,7 +29,7 @@ class ExpenseListView(generics.ListCreateAPIView):
     filterset_class = ExpenseFilter
 
 
-class ExpenseByCategoryListView(generics.ListCreateAPIView):
+class ExpenseByCategoryListView(generics.RetrieveUpdateDestroyAPIView): # ListCreateAPIView):
     queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
 

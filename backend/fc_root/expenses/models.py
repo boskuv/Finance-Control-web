@@ -14,4 +14,5 @@ class Expense(models.Model):
     id = models.IntegerField(primary_key=True) # AutoField
     amount = models.FloatField()
     created = models.DateTimeField(auto_now_add=True)
-    category_codename = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category_codename = models.ForeignKey(Category, related_name='expenses', on_delete=models.CASCADE)
+
