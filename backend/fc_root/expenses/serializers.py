@@ -10,8 +10,8 @@ class ExpenseSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    #was_published_recently = serializers.BooleanField(read_only=True)
-    #choice_set = ExpenseSerializer(read_only=True, many=True)
+    money_spent = serializers.IntegerField(read_only=True)
+    expenses = ExpenseSerializer(read_only=True, many=True)
 
     class Meta:
         model = Category
