@@ -1,17 +1,17 @@
-import { Button, List, ListItem } from '@mui/material'
+import { Box, Button, List, ListItem } from '@mui/material'
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { ContainerWrapper } from '../../blocks/ContainerWrapper'
-export const App: FC = () => {
+export const Register: FC = () => {
   return (
     <ContainerWrapper>
-      <h2>Finance Center</h2>
+      <h2>Register</h2>
       <List disablePadding>
         <ListItem>
-          <Link to='/login'>Login</Link>
+          <Link to='/'>Go to Home</Link>
         </ListItem>
         <ListItem>
-          <Link to='/register'>Register</Link>
+          <Link to='/login'>AllReady Register? Go to Login</Link>
         </ListItem>
       </List>
     </ContainerWrapper>

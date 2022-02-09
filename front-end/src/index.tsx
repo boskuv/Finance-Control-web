@@ -5,14 +5,23 @@ import reportWebVitals from './reportWebVitals'
 import './index.css'
 import { store } from './services/store/store'
 import { Provider } from 'react-redux'
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import { Login } from './components/Login'
+import { Register } from './components/Register'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-        <App />
+      <HashRouter>
+        <Routes>
+          <Route path='/' element={<App />} />
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+        </Routes>
+      </HashRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )
 
 // If you want to start measuring performance in your app, pass a function
