@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import { Login } from './components/Login'
 import { Register } from './components/Register'
+import { Finance } from './components/Finance'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
           <Route path='/' element={<App />} />
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
+          <Route path='/finance' element={<Finance />}></Route>
         </Routes>
       </HashRouter>
     </Provider>
