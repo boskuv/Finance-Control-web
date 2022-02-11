@@ -14,6 +14,9 @@ export const App: FC = () => {
         <ListItem>
           <Link to='/register'>Register</Link>
         </ListItem>
+        <ListItem>
+          <Link to='/finance'>Finance</Link>
+        </ListItem>
       </List>
     </ContainerWrapper>
   )
